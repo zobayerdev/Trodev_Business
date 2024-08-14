@@ -43,6 +43,11 @@ public class WebViewActivity extends AppCompatActivity {
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
+
+        // Enable zoom controls
+        webSettings.setBuiltInZoomControls(true);
+        webSettings.setDisplayZoomControls(false);
+
         // Ensure the website opens within the app
         webView.setWebViewClient(new WebViewClient() {
             @Override

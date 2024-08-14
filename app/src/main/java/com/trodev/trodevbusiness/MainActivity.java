@@ -92,8 +92,8 @@ public class MainActivity extends AppCompatActivity {
         isFabOpen = true;
         fabOption1.setVisibility(View.VISIBLE);
         fabOption2.setVisibility(View.VISIBLE);
-        fab.animate().rotation(45f);
-        fab.setImageResource(R.drawable.admin_icon);// Rotate the main FAB
+        fab.animate().rotation(0f);
+        fab.setImageResource(R.drawable.ic_done);// Rotate the main FAB
     }
 
     private void closeFabMenu() {

@@ -1,6 +1,8 @@
 package com.trodev.trodevbusiness.password;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -23,11 +25,25 @@ public class PasswordActivity extends AppCompatActivity {
     private DatabaseReference reference;
     private ArrayList<PasswordModel> list;
     private PasswordAdapter adapter;
+    ImageView back_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_password);
+
+        /*hide title bar*/
+        getSupportActionBar().hide();
+        /*init view*/
+        back_btn = findViewById(R.id.back_btn);
+
+        /*set on click*/
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         /*init view*/
         rvList = findViewById(R.id.rvList);

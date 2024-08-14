@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -37,8 +38,9 @@ import java.util.Calendar;
 public class UploadWebActivity extends AppCompatActivity {
 
     TextInputEditText web_name_et, web_link_et;
-    MaterialButton uploadBtn;
+    Button uploadBtn;
     ImageView imageIv;
+    ImageView back_btn;
 
     /*################################*/
     /*for image link*/ Uri imageUri;
@@ -55,11 +57,25 @@ public class UploadWebActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_web);
 
+        /*hide title bar*/
+        getSupportActionBar().hide();
+
         /*init view*/
         imageIv = findViewById(R.id.imageIv);
         web_name_et = findViewById(R.id.web_name_et);
         web_link_et = findViewById(R.id.web_link_et);
         uploadBtn = findViewById(R.id.uploadBtn);
+
+        /*init view*/
+        back_btn = findViewById(R.id.back_btn);
+
+        /*set on click*/
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         /*firebase setup*/
         database = FirebaseDatabase.getInstance();

@@ -4,6 +4,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -25,9 +27,10 @@ import java.util.Calendar;
 public class UploadPassword extends AppCompatActivity {
 
     TextInputEditText web_et, pass_et, username_et;
-    MaterialButton uploadBtn;
+    Button uploadBtn;
     ProgressBar progressBar;
     ProgressDialog progressDialog;
+    ImageView back_btn;
 
     /*################################*/
     /*firebase data*/
@@ -39,8 +42,21 @@ public class UploadPassword extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_upload_password);
 
-        /*init view*/
+        /*hide title bar*/
+        getSupportActionBar().hide();
 
+        /*init view*/
+        back_btn = findViewById(R.id.back_btn);
+
+        /*set on click*/
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
+
+        /*init view*/
         web_et = findViewById(R.id.web_et);
         pass_et = findViewById(R.id.pass_et);
         username_et = findViewById(R.id.username_et);
@@ -86,27 +102,25 @@ public class UploadPassword extends AppCompatActivity {
                 allJobModel.setTime(time);
 
                 // Push the data to Firebase Realtime Database
-                database.getReference().child("trodev_web_pass").push().setValue(allJobModel)
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                progressDialog.hide();
+                database.getReference().child("trodev_web_pass").push().setValue(allJobModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        progressDialog.hide();
 
-                                // Navigate to the AdminScreenActivity
-                                Intent intent = new Intent(UploadPassword.this, AdminScreenActivity.class);
-                                startActivity(intent);
-                                finishAffinity();
+                        // Navigate to the AdminScreenActivity
+                        Intent intent = new Intent(UploadPassword.this, AdminScreenActivity.class);
+                        startActivity(intent);
+                        finishAffinity();
 
-                                Toast.makeText(UploadPassword.this, "আপলোড সম্পূর্ণ হয়েছে !!!", Toast.LENGTH_SHORT).show();
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                progressDialog.hide();
-                                Toast.makeText(UploadPassword.this, "আপলোড সম্পূর্ণ হয় নাই\nআবার চেষ্টা করুন", Toast.LENGTH_SHORT).show();
-                            }
-                        });
+                        Toast.makeText(UploadPassword.this, "আপলোড সম্পূর্ণ হয়েছে !!!", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        progressDialog.hide();
+                        Toast.makeText(UploadPassword.this, "আপলোড সম্পূর্ণ হয় নাই\nআবার চেষ্টা করুন", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
 

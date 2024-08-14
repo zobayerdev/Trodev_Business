@@ -15,6 +15,43 @@
         android:orientation="vertical"
         android:padding="16dp">
 
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/back_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/ic_back"
+                    app:tint="@color/app_color" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/space_grotesk_medium"
+                    android:text="Go Back"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
         <!--Id change hoise eikhane-->
         <ImageView
             android:id="@+id/imageIv"
@@ -22,7 +59,7 @@
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:adjustViewBounds="true"
-            android:src="@drawable/whmcs_icon" />
+            android:src="@drawable/web_ic" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -70,7 +107,7 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.button.MaterialButton
+        <Button
             android:id="@+id/uploadBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

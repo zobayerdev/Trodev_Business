@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,8 +15,9 @@ import com.google.android.material.textfield.TextInputEditText;
 
 public class AdminLoginActivity extends AppCompatActivity {
 
-    private TextInputEditText editTextAdmin, editTextPassword;
-    private MaterialButton buttonLogin;
+    TextInputEditText editTextAdmin, editTextPassword;
+    Button buttonLogin;
+    ImageView back_btn;
 
     // Define the correct password
     private static final String CORRECT_PASSWORD = "zobayerdev";
@@ -23,6 +26,19 @@ public class AdminLoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
+
+        /*hide title bar*/
+        getSupportActionBar().hide();
+        /*init view*/
+        back_btn = findViewById(R.id.back_btn);
+
+        /*set on click*/
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         editTextAdmin = findViewById(R.id.editTextAdmin);
         editTextPassword = findViewById(R.id.editTextPassword);

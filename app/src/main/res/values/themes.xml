@@ -1,8 +1,52 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.TrodevBusiness" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.TrodevBusiness" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/app_color</item>
+        <item name="colorPrimaryVariant">@color/app_color</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/app_color</item>
+        <item name="colorSecondaryVariant">@color/app_color</item>
+        <item name="colorOnSecondary">@color/black</item>
+
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+    </style>
+
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
+    </style>
+
+    <!--navigation menu font family-->
+    <style name="NavigationMenuViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/space_grotesk_medium</item>
+    </style>
+
+    <!-- ProgressBar Color. -->
+    <style name="ProgressBar">
+        <item name="colorSecondary">@color/white</item>
+    </style>
+
+    <style name="fontfamily" parent="TextAppearance.Design.Tab">
+        <item name="android:fontFamily">@font/space_grotesk_medium</item>
+    </style>
+
+    <style name="fontfamilys" parent="TextAppearance.Design.Tab">
+        <item name="android:fontFamily">@font/space_grotesk_medium</item>
+    </style>
+
+    <style name="Circular">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.CardView" parent="">
+        <item name="cornerFamilyBottomLeft">rounded</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
+        <item name="cornerSizeTopLeft">8%</item>
+        <item name="cornerSizeTopRight">8%</item>
     </style>
 
     <style name="Theme.TrodevBusiness" parent="Base.Theme.TrodevBusiness" />
